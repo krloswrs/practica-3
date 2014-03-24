@@ -1,0 +1,111 @@
+﻿/*
+ * Created by SharpDevelop.
+ * User: krlos
+ * Date: 14/03/2014
+ * Time: 11:35 a.m.
+ * 
+ * To change this template use Tools | Options | Coding | Edit Standard Headers.
+ */
+using System;
+using System.Collections;
+
+namespace practica3
+{
+	class Program
+	{
+		public static void Main(string[] args)
+		{
+	
+	        Hashtable tabla = new Hashtable();
+	        Persona p = new Persona();
+	        
+			Console.WriteLine("nombre1");
+			p.nombre=Console.ReadLine();
+	        
+			Console.WriteLine("Código1:");
+			p.codigo=Console.ReadLine();
+			tabla.Add(p.codigo,p);
+			
+			p = new Persona();
+			Console.WriteLine("nombre2");
+			p.nombre=Console.ReadLine();
+	        
+			Console.WriteLine("Código2:");
+			p.codigo=Console.ReadLine();
+			tabla.Add(p.codigo,p);
+			
+			p = new Persona();
+			Console.WriteLine("nombre3");
+			p.nombre=Console.ReadLine();
+	        
+			Console.WriteLine("Código3:");
+			p.codigo=Console.ReadLine();
+			
+			tabla.Add(p.codigo,p);
+
+			Console.WriteLine("Dame el código a editar:");
+			string llave = Console.ReadLine();
+
+			if(tabla.ContainsKey(llave)){
+				
+				Object objeto = tabla[llave];
+				p = (Persona) objeto;
+				
+				//Mostrar los datos de la persona
+				Console.WriteLine(p.nombre,p.codigo);
+				//Preguntar si desea editar
+				
+				Console.WriteLine("deseas editar");
+				string r=Console.ReadLine();
+				if(r=="s"){
+					Console.WriteLine("nombre");
+					Console.WriteLine("codigo");
+				}else{
+					Console.WriteLine("no deseo editar");
+				}
+				  		
+			}else{
+				Console.WriteLine("existe el código");
+				Console.ReadLine();
+					Console.WriteLine("nombre:");
+					p.nombre=Console.ReadLine();
+					Console.WriteLine("codigo:");
+					p.codigo=Console.ReadLine();
+	
+				Console.WriteLine("No existe el código");
+				Console.ReadLine();
+			}
+			
+			//eliminar
+			Console.WriteLine("deseas eliminar");
+				string nombre=Console.ReadLine();
+				if(nombre=="s"){
+					Console.WriteLine("nombre");
+					Console.WriteLine("codigo");
+				}else{
+					Console.WriteLine("no deseo eliminar");
+				}
+				
+			Console.WriteLine("Dame el código a eliminar:");
+			llave = Console.ReadLine();
+			if(tabla.ContainsKey(llave)){
+				Object objeto =(llave);
+				tabla.Remove(p.codigo);
+			}else{
+				Console.WriteLine("existe el código");
+				Console.ReadLine();
+					Console.WriteLine("nombre:");
+					p.nombre=Console.ReadLine();
+					Console.WriteLine("codigo:");
+					p.codigo=Console.ReadLine();
+	
+				Console.WriteLine("No existe el código");
+				Console.ReadLine();
+			}
+			
+			
+			//buscar
+					
+		}
+	}
+}
